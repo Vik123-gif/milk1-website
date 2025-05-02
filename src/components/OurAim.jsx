@@ -1,9 +1,14 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { motion } from "motion/react";
 
 const OurAim = () => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, x: -200 }}
+      transition={{ duration: 1 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
       className="text-center p-6 py-20 lg-px-20 w-full overflow-hidden"
       id="Aim"
     >
@@ -34,7 +39,7 @@ const OurAim = () => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -5,10 +5,12 @@ import OurAim from "./components/OurAim";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Products from "./components/Products";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
-    <div>
+    <div className="w-full overflow-hidden">
+      <ToastContainer />
       <Navbar />
       <Home />
       <OurAim />

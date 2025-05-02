@@ -4,10 +4,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import { motion } from "motion/react";
 
 const Products = () => {
   return (
-    <div id="Products" className="w-full py-16 px-4 bg-white">
+    <motion.div
+      initial={{ opacity: 0, y: 200 }}
+      transition={{ duration: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      id="Products"
+      className="w-full py-16 px-4 bg-white"
+    >
       <div className="text-center mb-10">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
           Our Dairy <span className="text-yellow-600">Products</span>
@@ -74,7 +82,7 @@ const Products = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

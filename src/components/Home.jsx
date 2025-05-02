@@ -1,8 +1,13 @@
 import React from "react";
+import { motion } from "motion/react";
 
 const Home = () => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      transition={{ duration: 1.5 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       id="Home"
       className="  min-h-screen bg-cover bg-center flex items-center justify-center w-full relative"
       style={{ backgroundImage: "url('/header_img.jpg')" }}
@@ -34,7 +39,7 @@ const Home = () => {
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
