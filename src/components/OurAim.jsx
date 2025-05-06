@@ -10,7 +10,7 @@ const OurAim = () => {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       className="text-center p-6 py-20 lg-px-20 w-full overflow-hidden"
-      id="Aim"
+      id="OurAim"
     >
       <div className="flex flex-col lg:flex-row items-center gap-5">
         {/* Image Section */}

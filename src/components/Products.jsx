@@ -20,7 +20,7 @@ const Products = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
           Our Dairy <span className="text-yellow-600">Products</span>
         </h1>
-        <p className="mt-4 text-gray-600 w-[80%]  sm:w-full mx-auto text-sm md:text-base">
+        <p className="mt-4 text-gray-600 w-[80%] sm:w-full mx-auto text-sm md:text-base">
           We offer a range of fresh, high-quality dairy products made from both
           cow and buffalo milk. From wholesome milk to ghee, paneer, and curd —
           all our items are crafted with care, purity, and traditional methods
@@ -38,7 +38,7 @@ const Products = () => {
         >
           {ProductsData.map((product, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white rounded-2xl shadow-xl p-4 min-h-[440px] flex flex-col items-center justify-start transition-transform hover:scale-[1.02] duration-300">
+              <div className="bg-white rounded-2xl shadow-xl p-4 flex flex-col items-center justify-between min-h-[450px] transition-transform hover:scale-[1.02] duration-300">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -50,14 +50,19 @@ const Products = () => {
                 <h3 className="text-md font-semibold text-yellow-600 mb-2 text-center">
                   {product.price}
                 </h3>
-                <p className="text-sm text-gray-600 text-center px-2">
+                <p className="text-sm text-gray-600 text-center px-2 mb-3">
                   {product.description}
                 </p>
+                <div className="mt-auto">
+                  <button className="bg-yellow-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-yellow-600 transition">
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="h-4"></div>
+        <div className="h-8"></div> {/* Increased space to prevent overlap */}
       </div>
 
       {/* Grid for Medium and Large Screens */}
@@ -65,7 +70,7 @@ const Products = () => {
         {ProductsData.map((product, index) => (
           <div
             key={index}
-            className="bg-white rounded-2xl shadow-md hover:shadow-lg p-4 transition-all duration-300 transform hover:-translate-y-1"
+            className="bg-white rounded-2xl shadow-md hover:shadow-lg p-4 transition-all duration-300 transform hover:-translate-y-1 flex flex-col"
           >
             <img
               src={product.image}
@@ -78,7 +83,10 @@ const Products = () => {
             <h3 className="text-md font-bold text-green-600 mb-2">
               {product.price}
             </h3>
-            <p className="text-sm text-gray-600">{product.description}</p>
+            <p className="text-sm text-gray-600 mb-3">{product.description}</p>
+            <button className=" mt-auto pb-4 w-full bg-yellow-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-yellow-600 transition">
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>

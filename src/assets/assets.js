@@ -8,6 +8,7 @@ import ghee from "./ghee_img.webp";
 import cow_curd from "./cow_curd.jpg";
 import buffole_curd from "./buffole_curd.webp";
 import butter_img from "./butter_img.jpg";
+import cart_icon from "./cart_icon.png";
 
 export const assets = {
   menu_icon,
@@ -20,6 +21,7 @@ export const assets = {
   cow_curd,
   buffole_curd,
   butter_img,
+  cart_icon,
 };
 
 export const ProductsData = [
@@ -27,6 +29,7 @@ export const ProductsData = [
     name: "Cow Milk",
     image: cow_milk,
     price: "₹50/litre",
+
     description:
       "Fresh and light cow milk, perfect for daily consumption and easy digestion.",
   },

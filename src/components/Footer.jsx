@@ -14,7 +14,7 @@ const Footer = () => {
       {/* Social Icons */}
       <div className="flex justify-center items-center gap-6 text-xl sm:text-2xl my-6">
         <a
-          href="https://wa.me/6204147201"
+          href="https://wa.me/+916204147201"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-green-400 transition"
