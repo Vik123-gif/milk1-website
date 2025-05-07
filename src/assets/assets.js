@@ -26,6 +26,7 @@ export const assets = {
 
 export const ProductsData = [
   {
+    id: 1,
     name: "Cow Milk",
     image: cow_milk,
     price: "₹50/litre",
@@ -34,6 +35,7 @@ export const ProductsData = [
       "Fresh and light cow milk, perfect for daily consumption and easy digestion.",
   },
   {
+    id: 2,
     name: "Buffalo Milk",
     image: buffole_milk,
     price: "₹60/litre",
@@ -41,6 +43,7 @@ export const ProductsData = [
       "Thicker and creamier milk, ideal for making ghee, paneer, and rich sweets.",
   },
   {
+    id: 3,
     name: "Cow Paneer",
     image: panner,
     price: "₹300/kg",
@@ -48,6 +51,7 @@ export const ProductsData = [
       "Soft paneer made from cow milk, ideal for healthy and low-fat meals.",
   },
   {
+    id: 4,
     name: "Buffalo Paneer",
     image: panner,
     price: "₹340/kg",
@@ -55,6 +59,7 @@ export const ProductsData = [
       "Creamier paneer made from buffalo milk, best for rich recipes and gravies.",
   },
   {
+    id: 5,
     name: "Cow Ghee",
     image: ghee,
     price: "₹600/litre",
@@ -62,6 +67,7 @@ export const ProductsData = [
       "Traditional ghee made from cow milk with natural aroma and golden texture.",
   },
   {
+    id: 6,
     name: "Buffalo Ghee",
     image: ghee,
     price: "₹650/litre",
@@ -69,6 +75,7 @@ export const ProductsData = [
       "Thick, grainy buffalo milk ghee with rich taste and longer shelf life.",
   },
   {
+    id: 7,
     name: "Cow Curd",
     image: cow_curd,
     price: "₹70/kg",
@@ -76,6 +83,7 @@ export const ProductsData = [
       "Light and easy-to-digest curd made from cow milk, good for daily meals.",
   },
   {
+    id: 8,
     name: "Buffalo Curd",
     image: buffole_curd,
     price: "₹90/kg",
@@ -83,6 +91,7 @@ export const ProductsData = [
       "Thicker, creamier curd made from buffalo milk, perfect for desserts.",
   },
   {
+    id: 9,
     name: "Cow Butter",
     image: butter_img,
     price: "₹430/kg",
@@ -90,6 +99,7 @@ export const ProductsData = [
       "Pure white butter made from cow milk, rich in taste and easy to spread.",
   },
   {
+    id: 10,
     name: "Buffalo Butter",
     image: butter_img,
     price: "₹470/kg",

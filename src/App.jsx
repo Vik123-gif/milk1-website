@@ -5,19 +5,32 @@ import OurAim from "./components/OurAim";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Products from "./components/Products";
+import Cart from "./components/Cart";
 import { ToastContainer } from "react-toastify";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <div className="w-full overflow-hidden">
+    <Router>
       <ToastContainer />
       <Navbar />
-      <Home />
-      <OurAim />
-      <Products />
-      <Contact />
-      <Footer />
-    </div>
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div>
+              <Home />
+              <OurAim />
+              <Products />
+              <Contact />
+              <Footer />
+            </div>
+          }
+        />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </Router>
   );
 };
 

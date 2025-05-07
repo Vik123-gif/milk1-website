@@ -4,9 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
+import { useCart } from "../app/CartContext";
 
 const Products = () => {
+  const { addToCart } = useCart();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 200 }}
@@ -28,7 +31,7 @@ const Products = () => {
         </p>
       </div>
 
-      {/* Carousel for Small Screens */}
+      {/* Swiper Carousel (Mobile) */}
       <div className="block md:hidden relative">
         <Swiper
           spaceBetween={20}
@@ -36,8 +39,8 @@ const Products = () => {
           modules={[Pagination]}
           className="pb-14"
         >
-          {ProductsData.map((product, index) => (
-            <SwiperSlide key={index}>
+          {ProductsData.map((product) => (
+            <SwiperSlide key={product.id}>
               <div className="bg-white rounded-2xl shadow-xl p-4 flex flex-col items-center justify-between min-h-[450px] transition-transform hover:scale-[1.02] duration-300">
                 <img
                   src={product.image}
@@ -54,7 +57,10 @@ const Products = () => {
                   {product.description}
                 </p>
                 <div className="mt-auto">
-                  <button className="bg-yellow-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-yellow-600 transition">
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="bg-yellow-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-yellow-600 transition"
+                  >
                     Add to Cart
                   </button>
                 </div>
@@ -62,14 +68,14 @@ const Products = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="h-8"></div> {/* Increased space to prevent overlap */}
+        <div className="h-8"></div>
       </div>
 
-      {/* Grid for Medium and Large Screens */}
+      {/* Grid View (Desktop) */}
       <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {ProductsData.map((product, index) => (
+        {ProductsData.map((product) => (
           <div
-            key={index}
+            key={product.id}
             className="bg-white rounded-2xl shadow-md hover:shadow-lg p-4 transition-all duration-300 transform hover:-translate-y-1 flex flex-col"
           >
             <img
@@ -84,7 +90,10 @@ const Products = () => {
               {product.price}
             </h3>
             <p className="text-sm text-gray-600 mb-3">{product.description}</p>
-            <button className=" mt-auto pb-4 w-full bg-yellow-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-yellow-600 transition">
+            <button
+              onClick={() => addToCart(product)}
+              className="mt-auto pb-4 w-full bg-yellow-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-yellow-600 transition"
+            >
               Add to Cart
             </button>
           </div>

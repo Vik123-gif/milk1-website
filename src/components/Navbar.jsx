@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { motion } from "framer-motion";
+import { useCart } from "../app/CartContext";
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const { cartItems } = useCart();
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   useEffect(() => {
     document.body.style.overflow = showMobileMenu ? "hidden" : "auto";
@@ -12,82 +16,67 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md rounded-3xl">
-      <div className="container mx-auto py-4 px-4 sm:px-10 md:px-20 relative flex justify-between items-center">
+      <div className="flex justify-between items-center px-4 py-3 sm:px-6 md:px-10 lg:px-20">
         {/* Mobile Menu Icon */}
-        <div className="md:hidden">
-          <motion.img
-            whileHover={{ scale: 1.5 }}
-            whileTap={{ scale: 1 }}
-            onClick={() => setShowMobileMenu(true)}
-            src={assets.menu_icon}
-            className="w-6 cursor-pointer"
-            alt="menu"
-          />
-        </div>
+        <motion.img
+          whileHover={{ scale: 1.5 }}
+          whileTap={{ scale: 1 }}
+          onClick={() => setShowMobileMenu(true)}
+          src={assets.menu_icon}
+          className="w-6 cursor-pointer md:hidden"
+          alt="menu"
+        />
 
-        {/* Responsive Logo */}
+        {/* Center Logo */}
         <motion.h1
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.95 }}
-          className="text-xl sm:text-2xl font-bold text-blue-800 hover:text-red-500
-                     md:static md:translate-x-0 md:left-auto 
-                     absolute left-1/2 -translate-x-1/2"
+          className="text-xl sm:text-2xl font-bold text-blue-800 hover:text-red-500 
+                     absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0"
         >
-          GM DAIRY
+          <Link to="/">GM DAIRY</Link>
         </motion.h1>
 
-        {/* Right: Mobile Cart Icon */}
-        <div className="relative md:hidden">
-          <img src={assets.cart_icon} className="w-6" alt="cart" />
+        {/* Mobile Cart Icon */}
+        <Link to="/cart" className="relative md:hidden">
+          <img src={assets.cart_icon} className="w-6 sm:w-8" alt="cart" />
           <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-            0
+            {totalItems}
           </span>
-        </div>
+        </Link>
 
-        {/* Desktop Menu */}
+        {/* Desktop Nav */}
         <ul className="hidden md:flex gap-8 text-blue-800 font-bold text-lg items-center ml-auto mr-auto">
-          <motion.a
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            href="#Home"
-            className="cursor-pointer hover:text-red-600"
-          >
-            Home
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            href="#OurAim"
-            className="cursor-pointer hover:text-red-600"
-          >
-            Our Aim
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            href="#Products"
-            className="cursor-pointer hover:text-red-600"
-          >
-            Products
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            href="#Contact"
-            className="cursor-pointer hover:text-red-600"
-          >
-            Contact
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+            <Link to="/" className="hover:text-red-600">
+              Home
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+            <a href="#OurAim" className="hover:text-red-600">
+              Our Aim
+            </a>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+            <a href="#Products" className="hover:text-red-600">
+              Products
+            </a>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+            <a href="#Contact" className="hover:text-red-600">
+              Contact
+            </a>
+          </motion.div>
         </ul>
 
-        {/* Desktop Cart + Sign up */}
+        {/* Desktop Cart and Signup */}
         <div className="hidden md:flex items-center gap-4">
-          <div className="relative">
+          <Link to="/cart" className="relative">
             <img src={assets.cart_icon} className="w-6 sm:w-8" alt="cart" />
             <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-              0
+              {totalItems}
             </span>
-          </div>
+          </Link>
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -109,16 +98,17 @@ const Navbar = () => {
               alt="close"
             />
           </div>
+
           <ul className="flex flex-col items-center gap-6 text-lg font-bold text-blue-800 mt-8">
-            <motion.a
-              whileHover={{ scale: 1.3 }}
-              whileTap={{ scale: 1 }}
-              onClick={() => setShowMobileMenu(false)}
-              href="#Home"
-              className="hover:text-red-600"
-            >
-              Home
-            </motion.a>
+            <motion.div whileHover={{ scale: 1.3 }} whileTap={{ scale: 1 }}>
+              <Link
+                to="/"
+                onClick={() => setShowMobileMenu(false)}
+                className="hover:text-red-600"
+              >
+                Home
+              </Link>
+            </motion.div>
             <motion.a
               whileHover={{ scale: 1.3 }}
               whileTap={{ scale: 1 }}
@@ -146,6 +136,7 @@ const Navbar = () => {
             >
               Contact
             </motion.a>
+
             <motion.button
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 1 }}
