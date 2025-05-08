@@ -15,7 +15,7 @@ const Navbar = () => {
   }, [showMobileMenu]);
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md rounded-3xl">
+    <div className="fixed top-0 left-0 w-full z-50   ">
       <div className="flex justify-between items-center px-4 py-3 sm:px-6 md:px-10 lg:px-20">
         {/* Mobile Menu Icon */}
         <motion.img
@@ -23,7 +23,7 @@ const Navbar = () => {
           whileTap={{ scale: 1 }}
           onClick={() => setShowMobileMenu(true)}
           src={assets.menu_icon}
-          className="w-6 cursor-pointer md:hidden"
+          className="w-10 cursor-pointer md:hidden"
           alt="menu"
         />
 
@@ -40,7 +40,7 @@ const Navbar = () => {
         {/* Mobile Cart Icon */}
         <Link to="/cart" className="relative md:hidden">
           <img src={assets.cart_icon} className="w-6 sm:w-8" alt="cart" />
-          <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
+          <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-7 h-5 rounded-full flex items-center justify-center font-bold">
             {totalItems}
           </span>
         </Link>

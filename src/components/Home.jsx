@@ -9,7 +9,7 @@ const Home = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       id="Home"
-      className="  min-h-screen bg-cover bg-center flex items-center justify-center w-full relative"
+      className="mt-14  min-h-screen bg-cover bg-center flex items-center justify-center w-full relative"
       style={{ backgroundImage: "url('/header_img.jpg')" }}
     >
       <div className="bg-black/40 absolute inset-0" />
